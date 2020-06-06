@@ -112,7 +112,7 @@ app.post('/deletetodo/:data', (req, res) => {
 });
  
 //Endpoint to Delete all tel numbers
-app.delete('/deletenums', (req, res) => {
+app.delete('/deleteall', (req, res) => {
   db.collection(collName).deleteMany({}, function(err, obj) {
     if (err) throw err;
     //number of documents deleted
@@ -121,7 +121,7 @@ app.delete('/deletenums', (req, res) => {
  
   return res.status(200).send({
     status_code: 200,
-    message: "phonebook collection is empty"
+    message: "todos collection is empty"
   })
 });
  

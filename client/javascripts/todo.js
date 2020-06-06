@@ -57,7 +57,7 @@ let deleteToDo = () => {
   let content = $("#deleteOne").val();
   $.ajax({
       method: "POST",
-      url: "http://localhost:8888/deletecomment/" + content
+      url: "http://localhost:8888/deletetodo/" + content
     })
     .done(function(msg) {
       console.log("Comment deleted: " + msg);
@@ -87,7 +87,17 @@ let getTodo = () => {
  
 let deleteAll = () => {
   //delete all comments from db
-  // localStorage.removeItem("commentsList")
+  let content = $("#deleteAll").val();
+  $.ajax({
+    method: "POST",
+    url: "http://localhost:8888/deleteall/",
+  })
+  .done(function(msg) {
+    console.log("everything deleted: " + msg);
+  });
+
+window.location.reload();
+  localStorage.removeItem("commentsList")
   window.location.reload();
 }
  
